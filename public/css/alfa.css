@@ -1,0 +1,31 @@
+/* ALFA SISTEM COLORS */
+
+    .alfa-orange-background {
+        background-color: #FF5C00;
+    }
+    .alfa-blue-background {
+        background-color: #0099FF;
+    }
+    .alfa-orange-text {
+        color: #FF5C00;
+    }
+    .alfa-blue-text {
+        color: #0099FF;
+    }
+
+
+    select {
+        display: inline;
+    }
+
+    .toast {
+        cursor: pointer;
+    }
+
+    .toast-success {
+        background-color: #26a69a;
+    }
+
+    .dataTables_wrapper .top {
+        float: left;
+    }

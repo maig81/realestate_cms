@@ -1,0 +1,7 @@
+site/
+vendor/
+/.phpintel
+/build
+
+# hack
+composer.lock

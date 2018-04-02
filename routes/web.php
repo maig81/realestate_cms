@@ -11,15 +11,15 @@
 |
 */
 
-// UPDATES AND MIGRATION
-Route::get('/laravel/migrate', 'HomeController@migrate');
-Route::get('/laravel/update', 'HomeController@update');
 
 Route::group(['prefix' => \UriLocalizer::localeFromRequest()], function () {
 
     // AUTH
     Auth::routes();
     
+// UPDATES AND MIGRATION
+Route::get('/laravel/migrate', 'HomeController@migrate');
+Route::get('/laravel/update', 'HomeController@update');
 
     
     // SKINUTI!!!

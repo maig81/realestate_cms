@@ -61,11 +61,11 @@ class PhpExecutableFinder
                 return $php;
             }
         }
-
+        /*
         if (is_executable($php = PHP_BINDIR.('\\' === DIRECTORY_SEPARATOR ? '\\php.exe' : '/php'))) {
             return $php;
         }
-
+        */
         $dirs = array(PHP_BINDIR);
         if ('\\' === DIRECTORY_SEPARATOR) {
             $dirs[] = 'C:\xampp\php\\';

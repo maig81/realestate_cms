@@ -35,6 +35,11 @@ class HomeController extends Controller
         echo "Migration: " . Artisan::call('migrate', ['--force'=> true]);
     }
 
+    public function migrate_seed()
+    {
+        echo "Migration: " . Artisan::call('migrate:fresh', ['--force'=> true]);
+        echo "Seed: " . Artisan::call('db:seed');
+    }
 
     public function update()
     {   

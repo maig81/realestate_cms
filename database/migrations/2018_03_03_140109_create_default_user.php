@@ -23,6 +23,14 @@ class CreateDefaultUser extends Migration
 
         $user->attachRole(1); 
 
+        $user2 = App\User::create([
+            'name' => 'Admin',
+            'lastname' => 'Admin',
+            'email' => 'admin@Admin.com',
+            'password' => bcrypt('admin'),
+        ]);
+
+        $user2->attachRole(1); 
     }
 
     /**

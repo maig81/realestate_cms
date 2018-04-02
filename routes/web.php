@@ -19,6 +19,7 @@ Route::group(['prefix' => \UriLocalizer::localeFromRequest()], function () {
     
 // UPDATES AND MIGRATION
 Route::get('/laravel/migrate', 'HomeController@migrate');
+Route::get('/laravel/migrate_seed', 'HomeController@migrate_seed');
 Route::get('/laravel/update', 'HomeController@update');
 
     

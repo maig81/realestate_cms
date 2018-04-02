@@ -27,7 +27,7 @@
         <div class="nav-wrapper container">
 
             <!-- Admin logo -->
-            <a id="logo-container" href="./admin" class="brand-logo">Alfa sistem</a>
+            <a id="logo-container" href="/admin" class="brand-logo">Alfa sistem</a>
 
             @if(Auth::check())
                 @role('admin')

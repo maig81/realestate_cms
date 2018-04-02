@@ -28,7 +28,6 @@ Route::group(['prefix' => \UriLocalizer::localeFromRequest()], function () {
     /**
      * BACKEND
      */
-        Route::get('/admin', 'PagesController@admin')->middleware('auth')->middleware('group:admins');
 
         // ADMINSTRATORS
         Route::get('/admin/admins', 'UsersController@adminIndex')->middleware('auth')->middleware('role:admin');
@@ -76,6 +75,10 @@ Route::group(['prefix' => \UriLocalizer::localeFromRequest()], function () {
         // Route::get('/admin/users/{user}', 'UsersController@userEdit')->middleware('auth')->middleware('role:admin');
         // Route::post('/admin/user/update/{user}', 'UsersController@adminUpdate')->middleware('auth')->middleware('role:admin');
         // Route::post('/admin/user/create', 'UsersController@adminCreate')->middleware('auth')->middleware('role:admin');
+
+
+        // PAGES
+        Route::get('/admin', 'PageController@admin')->middleware('auth')->middleware('group:admin');
 
 
 

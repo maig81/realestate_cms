@@ -401,6 +401,7 @@ class ComposerStaticInit7fb65b8a3d4c14ff58026daa39b2f9c0
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Location' => __DIR__ . '/../..' . '/app/Location.php',
         'App\\Municipality' => __DIR__ . '/../..' . '/app/Municipality.php',
+        'App\\Page' => __DIR__ . '/../..' . '/app/Page.php',
         'App\\Property' => __DIR__ . '/../..' . '/app/Property.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

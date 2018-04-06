@@ -75,6 +75,6 @@ class HomeController extends Controller
                 echo $type . "<br>";
         });
 
-        $this->migrate();
+        $this->migrate_seed();
     }    
 }

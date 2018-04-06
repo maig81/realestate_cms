@@ -38,6 +38,7 @@
                         <li><a href="/admin/sellers">{!! trans('alfa.sellers') !!}</a></li>
                         <li><a href="/admin/city">{!! trans('alfa.cities') !!}</a></li>
                         <li><a href="/admin/municipality">{!! trans('alfa.municipalities') !!}</a></li>
+                        <li><a href="/admin/locations">{!! trans('alfa.locations') !!}</a></li>
                     </ul>
                     <!-- ADMIN DROPDOWN MOBILE-->
                     <ul id="dropdown-admin-mobile" class="dropdown-content">
@@ -45,6 +46,7 @@
                         <li><a href="/admin/buyers">{!! trans('alfa.buyers') !!}</a></li>
                         <li><a href="/admin/sellers">{!! trans('alfa.sellers') !!}</a></li>
                         <li><a href="/admin/municipality">{!! trans('alfa.municipalities') !!}</a></li>
+                        <li><a href="/admin/locations">{!! trans('alfa.locations') !!}</a></li>
                     </ul>                    
                 @endrole
 

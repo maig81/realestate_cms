@@ -4,11 +4,14 @@ use Faker\Generator as Faker;
 use App\User;
 
 $factory->define(App\Property::class, function (Faker $faker) {
+	
 	$price = rand(1, 10) * 100; 
 	$price_lower = rand(0, 1) ? $price / 2 : null; 
 
     return [
-        'street_id' => rand(0, 200),
+		'agent_id' => User::inRandomOrder()->first()->id,
+        'street_id' => rand(1, 200),
+        'location_id' => rand(1, 70),
         'house_number' => $faker->buildingNumber,
         'price' => $price,
         'price_lower' => $price_lower,
@@ -56,8 +59,7 @@ $factory->define(App\Property::class, function (Faker $faker) {
 		
 		'recomended' => rand(0, 1) ? 1 : null,
 		'published' => rand(0, 1) ? 1 : null,
-		'most_views' => rand(0, 1) ? 1 : null,
-		'agent_id' => User::inRandomOrder()->first()->id,
+		'most_views' => rand(0, 1) ? 1 : null
     ];
 
 /*

@@ -61,8 +61,9 @@ Route::get('/laravel/update', 'HomeController@update');
         Route::get('/admin/users/restore/{user}', 'UsersController@restore')->middleware('auth')->middleware('role:admin');
 
         // PROPERTIES
-        Route::get('/admin/properties', 'PropertyController@adminIndex')->middleware('auth');
-        Route::get('/admin/properties/create', 'PropertyController@create')->middleware('auth');
+        Route::get('/admin/properties', 'PropertyController@adminIndex')->middleware('auth')->middleware('group:admin');
+        Route::get('/admin/properties/create', 'PropertyController@create')->middleware('auth')->middleware('group:admin');
+        Route::get('/admin/properties/data', 'PropertyController@indexData')->middleware('auth')->middleware('group:admin');
 
         // CITY
         Route::get('/admin/city', 'CityController@adminIndex')->middleware('auth')->middleware('role:admin');
@@ -78,6 +79,14 @@ Route::get('/laravel/update', 'HomeController@update');
         Route::get('/admin/municipality/data', 'MunicipalityController@indexData')->middleware('auth')->middleware('role:admin');
         Route::post('/admin/municipality/update/{municipality}', 'MunicipalityController@update')->middleware('auth')->middleware('role:admin');
         Route::get('/admin/municipality/{municipality}', 'MunicipalityController@edit')->middleware('auth')->middleware('role:admin');
+
+        // LOCATIONS
+        Route::get('/admin/locations', 'LocationController@adminIndex')->middleware('auth')->middleware('role:admin');
+        Route::get('/admin/locations/data', 'LocationController@indexData')->middleware('auth')->middleware('role:admin');
+        Route::post('/admin/locations/create', 'LocationController@create')->middleware('auth')->middleware('role:admin');
+        Route::get('/admin/locations/{location}', 'LocationController@edit')->middleware('auth')->middleware('role:admin');
+        Route::post('/admin/locations/update/{location}', 'LocationController@update')->middleware('auth')->middleware('role:admin');
+
 
         // 
         // Route::get('/admin/users/{user}', 'UsersController@userEdit')->middleware('auth')->middleware('role:admin');

@@ -11,7 +11,6 @@ class PropertySeeder extends Seeder
      */
     public function run()
     {
-      	factory(App\Property::class, 500)->create()->each(function ($u)  {
-    	});
+      	factory(App\Property::class, 500)->create();
     }
 }

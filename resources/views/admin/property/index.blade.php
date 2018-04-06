@@ -36,34 +36,63 @@
 <script>
 
     $(document).ready(function() {
+        
         // Initialize DATATABLES
-        var table = $('#users').DataTable( {
-            "data": dataSet,
+        var table = $('#properties').DataTable( {
+            ajax: '/admin/properties/data',
+            processing: true,
+            serverSide: true,
             "dom": '<"top">frt<"bottom"p><"clear">',
             "columns": [
                 { data: "id", title: "Id" },
-                { data: "name", title: "{{ trans('alfa.name') }}" },
-                { data: "phones", title: "{{ trans('alfa.phone') }}" },
-                { data: "email", title: "{{ trans('alfa.email') }}" },
-                { data: "deleted_at", "visible": false },
-                { data: "", title: "" }
+                { data: "location", name:"location.name", title: "{{ trans('alfa.location') }}" },
+                { data: "street", name:"street.name", title: "{{ trans('alfa.street') }}" },
+                { data: "price", title: "{{ trans('alfa.price') }}", className: "right-align", render: $.fn.dataTable.render.number( ',', '.', 0, '€' ) },
+                { data: "size", title: "{{ trans('alfa.size') }}", className: "right-align"},
+                { data: "published", title: "{{ trans('alfa.published') }}", className: "center-align"},
+                { data: "recomended", title: "{{ trans('alfa.recomended') }}", className: "center-align"},
+                { data: "most_views", title: "{{ trans('alfa.most_views') }}", className: "center-align"},
+                { data: "created_at", title: "{{ trans('alfa.created_at') }}", className: "center-align", searchable: false},
+                { data: "id", title: "" },
             ],
+            "order": [[ 8, "desc" ]],
             "pageLength":50,
             "columnDefs": [ {
                 "targets": -1,
                 "defaultContent": "",
                 "className": "right-align",
                 "render": function ( data, type, full, meta ) {
-                    if (full.deleted_at) {
-                        return "<a class='waves-effect waves-light btn tooltipped orange btn-restore' data-position='top' data-tooltip='{{ trans('alfa.restore') }}'><i class='material-icons'>undo</i> </a> ";    
+                    return "<a class='waves-effect waves-light btn btn-edit tooltipped' data-position='top' data-tooltip='{{ trans('alfa.edit') }}'><i class='material-icons'>mode_edit</i> </a> ";
+                }
+            }, {
+                "targets": 5,
+                "render": function ( data, type, full, meta ) {
+                    if (data == 1) {
+                        return "<i class='material-icons green-text'>public</i>";    
                     } else {
-                        return "<a class='waves-effect waves-light btn btn-edit tooltipped' data-position='top' data-tooltip='{{ trans('alfa.edit') }}'><i class='material-icons'>mode_edit</i> </a> <a class='waves-effect waves-light btn tooltipped red btn-delete' data-position='top' data-tooltip='{{ trans('alfa.delete') }}'><i class='material-icons'>close</i> </a> ";
+                        return "<i class='material-icons red-text'>do_not_disturb</i>";    
                     }
                 }
             }, {
-                "targets": 0,
-                "visible": false
-            }],
+                "targets": 6,
+                "render": function ( data, type, full, meta ) {
+                    if (data == 1) {
+                        return "<i class='material-icons green-text'>star</i>";    
+                    } 
+                    return "";
+                }
+            },
+            {
+                "targets": 7,
+                "render": function ( data, type, full, meta ) {
+                    if (data == 1) {
+                        return "<i class='material-icons green-text'>done_all</i>";    
+                    } 
+                    return "";
+                }
+            }
+
+            ],
             "language": { 
                 url: "../../js/datatables_translations/{{ App::getLocale() }}.json",
             },
@@ -74,11 +103,10 @@
             },
             initComplete: function() {
                 $('.tooltipped').tooltip();
-                $("div.top").html("<h4>{{ trans('alfa.buyers') }}</h4>");
+                $("div.top").html("<h4>{{ trans('alfa.locations') }}</h4>");
             }
-        } );
+        });
 
-        
 
         // EDIT BUTTON
         $('body').on('click', '#users .btn-edit', function() {

@@ -32,6 +32,9 @@ class CityController extends Controller
         $city = new City([
             'name' => $request->name
         ]);
+
+        $city->save();
+        
         return redirect("/admin/city/" . $city->id);
     }
 

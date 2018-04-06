@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Street;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
 class StreetController extends Controller
 {

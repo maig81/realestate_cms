@@ -18,7 +18,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('city_id')->nullable()->defalut(1);
             $table->integer('location_id')->nullable();
             $table->integer('street_id')->nullable();
-            $table->integer('rent_type_id')->nullable();
+            $table->integer('rent_type_id')->nullable()->defalut(1);
             $table->integer('property_type_id')->nullable();
             $table->integer('property_structure_id')->nullable();
             
@@ -87,7 +87,16 @@ class CreatePropertiesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
+            $table->index('city_id');
+            $table->index('location_id');
+            $table->index('street_id');
+            $table->index('rent_type_id');
+            $table->index('property_type_id');
+            $table->index('property_structure_id');            
+
         });
+
+
     }
 
     /**
